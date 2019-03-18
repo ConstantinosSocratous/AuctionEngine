@@ -1,0 +1,59 @@
+<?xml version="1.0" encoding="UTF-8"?><!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd"><html xmlns="http://www.w3.org/1999/xhtml" lang="en"><head><meta http-equiv="Content-Type" content="text/html;charset=UTF-8"/><link rel="stylesheet" href="../jacoco-resources/report.css" type="text/css"/><link rel="shortcut icon" href="../jacoco-resources/report.gif" type="image/gif"/><title>UsersManager.java</title><link rel="stylesheet" href="../jacoco-resources/prettify.css" type="text/css"/><script type="text/javascript" src="../jacoco-resources/prettify.js"></script></head><body onload="window['PR_TAB_WIDTH']=4;prettyPrint()"><div class="breadcrumb" id="breadcrumb"><span class="info"><a href="../jacoco-sessions.html" class="el_session">Sessions</a></span><a href="../index.html" class="el_report">AuctionEngine</a> &gt; <a href="index.source.html" class="el_package">default</a> &gt; <span class="el_source">UsersManager.java</span></div><h1>UsersManager.java</h1><pre class="source lang-java linenums">import java.util.ArrayList;
+
+public class UsersManager{
+
+<span class="fc" id="L5">    private static ArrayList&lt;User&gt; users = new ArrayList&lt;&gt;();</span>
+
+<span class="nc" id="L7">    public UsersManager(){</span>
+        
+<span class="nc" id="L9">    }</span>
+
+    /**
+     * Clear all users
+     */
+    public static void clearUsers(){
+<span class="fc" id="L15">        users = new ArrayList&lt;&gt;();</span>
+<span class="fc" id="L16">    }</span>
+
+    /**
+     * Returns all User
+     * @return ArrayList&lt;User&gt;
+     */
+    public static ArrayList&lt;User&gt; getUsers(){
+<span class="fc" id="L23">        return users;</span>
+    }
+
+    /**
+     * Adds a user
+     * @param user
+     */
+    public static void addUser(User user){
+<span class="fc" id="L31">        users.add(user);</span>
+<span class="fc" id="L32">    }</span>
+
+    /**
+     * Returns a User
+     * @param name
+     * @return User
+     */
+    public static User getUser(String name){
+<span class="fc bfc" id="L40" title="All 2 branches covered.">        for(User user: users){</span>
+<span class="fc bfc" id="L41" title="All 2 branches covered.">            if(user.getName().equals(name)) return user;</span>
+<span class="fc" id="L42">        }</span>
+        
+<span class="fc" id="L44">        return null;</span>
+    }
+
+    /**
+     * Print all users
+     */
+    // public static void printAllUsers(){
+    //     System.out.println(&quot;ALL USERS&quot;);
+    //     for(User user: users){
+    //         System.out.println(user.getName());
+    //     }
+    //     System.out.println();
+    // }
+    
+}
+</pre><div class="footer"><span class="right">Created with <a href="http://www.jacoco.org/jacoco">JaCoCo</a> 0.8.1.201803210924</span></div></body></html>

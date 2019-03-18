@@ -1,0 +1,56 @@
+<?xml version="1.0" encoding="UTF-8"?><!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd"><html xmlns="http://www.w3.org/1999/xhtml" lang="en"><head><meta http-equiv="Content-Type" content="text/html;charset=UTF-8"/><link rel="stylesheet" href="../jacoco-resources/report.css" type="text/css"/><link rel="shortcut icon" href="../jacoco-resources/report.gif" type="image/gif"/><title>ItemsManager.java</title><link rel="stylesheet" href="../jacoco-resources/prettify.css" type="text/css"/><script type="text/javascript" src="../jacoco-resources/prettify.js"></script></head><body onload="window['PR_TAB_WIDTH']=4;prettyPrint()"><div class="breadcrumb" id="breadcrumb"><span class="info"><a href="../jacoco-sessions.html" class="el_session">Sessions</a></span><a href="../index.html" class="el_report">AuctionEngine</a> &gt; <a href="index.source.html" class="el_package">default</a> &gt; <span class="el_source">ItemsManager.java</span></div><h1>ItemsManager.java</h1><pre class="source lang-java linenums">import java.util.ArrayList;
+
+public class ItemsManager{
+
+<span class="fc" id="L5">    private static ArrayList&lt;Item&gt; items = new ArrayList&lt;&gt;();</span>
+
+<span class="nc" id="L7">    public ItemsManager(){</span>
+<span class="nc" id="L8">    }</span>
+
+    /**
+     * Clear all items
+     */
+    public static void clearItems(){
+<span class="fc" id="L14">        items = new ArrayList&lt;&gt;();</span>
+<span class="fc" id="L15">    }</span>
+
+    /**
+     * Returns all Items
+     * @return ArrayList&lt;Item&gt;
+     */
+    public static ArrayList&lt;Item&gt; getItems(){
+<span class="fc" id="L22">        return items;</span>
+    }
+
+    /**
+     * Adds item
+     * @param item
+     */
+    public static void addItem(Item item){
+<span class="fc" id="L30">        items.add(item);</span>
+<span class="fc" id="L31">    }</span>
+
+    /**
+     * Returns an Item
+     * @param name
+     * @return Item
+     */
+    public static Item getItem(String name){
+<span class="fc bfc" id="L39" title="All 2 branches covered.">        for(Item item: items){</span>
+<span class="fc bfc" id="L40" title="All 2 branches covered.">            if(item.getName().equals(name)) return item;</span>
+<span class="fc" id="L41">        }</span>
+<span class="fc" id="L42">        return null;</span>
+    }
+
+    /**
+     * Print all items
+     */
+    // public static void printAllItems(){
+    //     System.out.println(&quot;ALL ITEMS&quot;);
+    //     for(Item item: items){
+    //         System.out.println(item.getName());
+    //     }
+    //     System.out.println();
+    // }
+}
+</pre><div class="footer"><span class="right">Created with <a href="http://www.jacoco.org/jacoco">JaCoCo</a> 0.8.1.201803210924</span></div></body></html>

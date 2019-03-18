@@ -1,0 +1,41 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<testsuite name="MainTest" tests="16" skipped="0" failures="0" errors="0" timestamp="2019-03-18T19:20:49" hostname="nmscde004108.nms.kcl.ac.uk" time="0.043">
+  <properties/>
+  <testcase name="getWinningBidCorrectly" classname="MainTest" time="0.037"/>
+  <testcase name="addItem" classname="MainTest" time="0.0"/>
+  <testcase name="addUser" classname="MainTest" time="0.0"/>
+  <testcase name="getBidsOnItemByUserUserNull" classname="MainTest" time="0.001"/>
+  <testcase name="getBidsOnItemByUserCorrect" classname="MainTest" time="0.0"/>
+  <testcase name="getItem" classname="MainTest" time="0.0"/>
+  <testcase name="getUser" classname="MainTest" time="0.0"/>
+  <testcase name="getWinningBidWhenThereIsNoItem" classname="MainTest" time="0.0"/>
+  <testcase name="getBidsOnItemByUserItemNull" classname="MainTest" time="0.0"/>
+  <testcase name="getWinningBidWhenThereIsNot" classname="MainTest" time="0.0"/>
+  <testcase name="getItemsThatUserMadeBidCorrectly" classname="MainTest" time="0.001"/>
+  <testcase name="makeBidWithLessOrLowestNumber" classname="MainTest" time="0.0"/>
+  <testcase name="makeBidWithNoItem" classname="MainTest" time="0.001"/>
+  <testcase name="makeBidWithNoUser" classname="MainTest" time="0.0"/>
+  <testcase name="makeBidCorrectly" classname="MainTest" time="0.001"/>
+  <testcase name="getItemsThatUserMadeBidWithNoUser" classname="MainTest" time="0.001"/>
+  <system-out><![CDATA[Bid made succesfully (Con, toys, 50)
+Bid made succesfully (Marios, toys, 80)
+Item : toys user: Marios --> 80
+Bid made succesfully (John, toy, 10)
+Bid made succesfully (John, toy, 15)
+User not found
+Bid made succesfully (John, toy, 10)
+Bid made succesfully (John, toy, 15)
+Item not found
+Item not found
+Bid made succesfully (John, toy, 10)
+Bid made succesfully (John, ball, 10)
+Bid made succesfully (John, toy, 50)
+Bid needs to be higher than the winning bid
+Item not found
+Item not found
+User not found
+Bid made succesfully (Smith, ball, 50)
+User not found
+]]></system-out>
+  <system-err><![CDATA[]]></system-err>
+</testsuite>

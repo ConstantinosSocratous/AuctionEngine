@@ -1,0 +1,173 @@
+<?xml version="1.0" encoding="UTF-8"?><!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd"><html xmlns="http://www.w3.org/1999/xhtml" lang="en"><head><meta http-equiv="Content-Type" content="text/html;charset=UTF-8"/><link rel="stylesheet" href="../jacoco-resources/report.css" type="text/css"/><link rel="shortcut icon" href="../jacoco-resources/report.gif" type="image/gif"/><title>Main.java</title><link rel="stylesheet" href="../jacoco-resources/prettify.css" type="text/css"/><script type="text/javascript" src="../jacoco-resources/prettify.js"></script></head><body onload="window['PR_TAB_WIDTH']=4;prettyPrint()"><div class="breadcrumb" id="breadcrumb"><span class="info"><a href="../jacoco-sessions.html" class="el_session">Sessions</a></span><a href="../index.html" class="el_report">AuctionEngine</a> &gt; <a href="index.source.html" class="el_package">default</a> &gt; <span class="el_source">Main.java</span></div><h1>Main.java</h1><pre class="source lang-java linenums">import java.util.ArrayList;
+import java.util.HashSet;
+
+public class Main{
+
+    public static void main(String[] args){
+
+        // Main main = new Main();
+        // main.addUser(&quot;John&quot;);
+        // main.addUser(&quot;Smith&quot;);
+        // main.addUser(&quot;Andreas&quot;);
+        // main.addUser(&quot;Maria&quot;);
+        // main.addUser(&quot;Anast&quot;);
+        // main.addUser(&quot;Con&quot;);
+
+
+        // main.addItem(&quot;Ball&quot;);
+        // main.addItem(&quot;xbox&quot;);
+        // main.addItem(&quot;toy&quot;);
+        // main.addItem(&quot;test&quot;);
+        
+
+        // main.makeBid(&quot;Smith&quot;, &quot;test&quot;, 10);
+        // main.makeBid(&quot;Andreas&quot;, &quot;test&quot;, 15);
+        // main.makeBid(&quot;Con&quot;, &quot;Ball&quot;, 15);
+        // main.makeBid(&quot;Andreas&quot;, &quot;Ball&quot;, 16);
+        // main.makeBid(&quot;Andreas&quot;, &quot;Ball&quot;, 17);
+        // main.makeBid(&quot;Andreas&quot;, &quot;Ball&quot;, 18);
+        // main.makeBid(&quot;Con&quot;, &quot;Ball&quot;, 20);
+        // // main.makeBid(&quot;Smith&quot;, &quot;test&quot;, 10);
+        // // main.makeBid(&quot;Andreas&quot;, &quot;test&quot;, 10);
+
+
+        // main.getWinningBid(&quot;Ball&quot;);
+        // main.getBidsOfItem(&quot;Ball&quot;);
+        // main.getBidsOfItem(&quot;test&quot;);
+
+
+        // main.getItemsThatUserMadeBid(&quot;Con&quot;);
+        // main.getItemsThatUserMadeBid(&quot;Andreas&quot;);
+        // main.getBidsOnItemByUser(&quot;Andreas&quot;, &quot;test&quot;);
+<span class="nc" id="L42">    }</span>
+    
+<span class="fc" id="L44">    public Main(){</span>
+        
+<span class="fc" id="L46">    }</span>
+
+    /**
+     * Adds a user to the Users Manager
+     * @param name
+     */
+    public void addUser(String name){
+<span class="fc" id="L53">        UsersManager.addUser(new User(name));</span>
+<span class="fc" id="L54">    }</span>
+
+    /**
+     * Returns a User
+     * @param name
+     * @return User
+     */
+    public User getUser(String name){
+<span class="fc" id="L62">        return UsersManager.getUser(name);</span>
+    }
+
+    /**
+     * Adds an Item to the Items Manager
+     * @param name
+     */
+    public void addItem(String name){
+<span class="fc" id="L70">        ItemsManager.addItem(new Item(name));</span>
+<span class="fc" id="L71">    }</span>
+
+    /**
+     * Returns an Item
+     * @param name
+     * @return Item
+     */
+    public Item getItem(String name){
+<span class="fc" id="L79">        return ItemsManager.getItem(name);</span>
+    }
+
+
+    /**
+     * Makes a bid
+     * @param userName
+     * @param itemName
+     * @param number
+     */
+    public void makeBid(String userName, String itemName, int number){
+<span class="fc" id="L90">        User user = UsersManager.getUser(userName);</span>
+<span class="fc bfc" id="L91" title="All 2 branches covered.">        if(user == null){</span>
+<span class="fc" id="L92">            System.out.println(&quot;User not found&quot;);</span>
+<span class="fc" id="L93">            return;</span>
+        } 
+
+<span class="fc" id="L96">        user.makeBid(itemName,number);</span>
+<span class="fc" id="L97">    }</span>
+
+    /**
+     * Returns Winning Bid of an Item
+     * @param itemName
+     * @return Bid
+     */
+    public Bid getWinningBid(String itemName){
+<span class="fc" id="L105">        Item item = ItemsManager.getItem(itemName);</span>
+<span class="fc bfc" id="L106" title="All 2 branches covered.">        if(item == null){</span>
+<span class="fc" id="L107">            System.out.println(&quot;Item not found&quot;);</span>
+<span class="fc" id="L108">            return null;</span>
+        } 
+
+<span class="fc" id="L111">        Bid winningBid = item.getWinningBid();</span>
+<span class="fc bfc" id="L112" title="All 2 branches covered.">        if(winningBid == null)  return null;</span>
+<span class="fc" id="L113">        else System.out.println(&quot;Item : &quot; + itemName + &quot; user: &quot; + winningBid.getUser().getName() + &quot; --&gt; &quot; + winningBid.getNumber());</span>
+<span class="fc" id="L114">        return winningBid;</span>
+    }
+
+    /**
+     * Returns all bids of an Item
+     * @param itemName
+     * @return ArrayList&lt;Bid&gt;
+     */
+    public ArrayList&lt;Bid&gt; getBidsOfItem(String itemName){
+<span class="fc" id="L123">        Item item = ItemsManager.getItem(itemName);</span>
+<span class="fc bfc" id="L124" title="All 2 branches covered.">        if(item == null){</span>
+<span class="fc" id="L125">            System.out.println(&quot;Item not found&quot;);</span>
+<span class="fc" id="L126">            return null;</span>
+        } 
+        //item.printBids();
+<span class="fc" id="L129">        return item.getBids();</span>
+    }
+
+    /**
+     * Returns all Bids that a user made on a specific Item
+     * @param userName
+     * @param itemName
+     * @return ArrayList&lt;Bid&gt;
+     */
+    public ArrayList&lt;Bid&gt; getBidsOnItemByUser(String userName, String itemName){
+<span class="fc" id="L139">        Item item = ItemsManager.getItem(itemName);</span>
+<span class="fc bfc" id="L140" title="All 2 branches covered.">        if(item == null){</span>
+<span class="fc" id="L141">            System.out.println(&quot;Item not found&quot;);</span>
+<span class="fc" id="L142">            return null;</span>
+        }
+
+<span class="fc" id="L145">        User user = UsersManager.getUser(userName);</span>
+<span class="fc bfc" id="L146" title="All 2 branches covered.">        if(user == null){</span>
+<span class="fc" id="L147">            System.out.println(&quot;User not found&quot;);</span>
+<span class="fc" id="L148">            return null;</span>
+        } 
+        
+        //user.printAllBidsOnItem(itemName);
+<span class="fc" id="L152">        return user.getAllBidsOnItem(itemName);</span>
+    }
+
+    /**
+     * Returns all Items that a user made bids.
+     * @param userName
+     * @return HashSet&lt;Item&gt;
+     */
+    public HashSet&lt;Item&gt; getItemsThatUserMadeBid(String userName){
+
+<span class="fc" id="L162">        User user = UsersManager.getUser(userName);</span>
+<span class="fc bfc" id="L163" title="All 2 branches covered.">        if(user == null){</span>
+<span class="fc" id="L164">            System.out.println(&quot;User not found&quot;);</span>
+<span class="fc" id="L165">            return null;</span>
+        }
+
+        //user.printAllItemsThatUserMadeBid();
+<span class="fc" id="L169">        return user.getAllItemsThatUserMadeBid();</span>
+    }
+
+}
+</pre><div class="footer"><span class="right">Created with <a href="http://www.jacoco.org/jacoco">JaCoCo</a> 0.8.1.201803210924</span></div></body></html>

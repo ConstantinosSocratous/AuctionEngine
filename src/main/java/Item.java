@@ -10,6 +10,11 @@ public class Item{
         this.name = name;
     }
 
+    /**
+     * Add a bid and return false if an error occurs
+     * @param bid
+     * @return Boolean
+     */
     public Boolean addBid(Bid bid){
         if(isBidValid(bid)){
             bids.add(bid);
@@ -18,6 +23,11 @@ public class Item{
         else return false;
     }
 
+    /**
+     * Checks if the bid is the higher bid
+     * @param bid
+     * @return Boolean
+     */
     public Boolean isBidValid(Bid bid){
         if(getWinningBid()!=null){
             if(bid.getNumber() > getWinningBid().getNumber()) return true;
@@ -28,6 +38,10 @@ public class Item{
         
     } 
 
+    /**
+     * Returns the winning bid (the highest one)
+     * @return Bid
+     */
     public Bid getWinningBid(){
         int max = 0;
         Bid temp = null;
@@ -41,21 +55,29 @@ public class Item{
         return temp;
     }
 
+    /**
+     * Returns all bids that the item has
+     * @return ArrayList<Bid>
+     */
     public ArrayList<Bid> getBids(){
         return bids;
     }
 
+    /**
+     * Returns the name of the item
+     * @return String
+     */
     public String getName(){
         return name;
     }
 
-    public void printBids(){
-        System.out.println("BIDS FOR ITEM " + name);
-        Bid winningBid = getWinningBid();
-        System.out.println("Winning Bid: " + winningBid.getUser().getName() + " --> "+ winningBid.getNumber());
-        for(Bid bid: bids){
-            System.out.println("User " + bid.getUser().getName() + " --> " + bid.getNumber());
-        }
-    }
+    // public void printBids(){
+    //     System.out.println("BIDS FOR ITEM " + name);
+    //     Bid winningBid = getWinningBid();
+    //     System.out.println("Winning Bid: " + winningBid.getUser().getName() + " --> "+ winningBid.getNumber());
+    //     for(Bid bid: bids){
+    //         System.out.println("User " + bid.getUser().getName() + " --> " + bid.getNumber());
+    //     }
+    // }
 
 }

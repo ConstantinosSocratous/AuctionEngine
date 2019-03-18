@@ -1,0 +1,91 @@
+<?xml version="1.0" encoding="UTF-8"?><!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd"><html xmlns="http://www.w3.org/1999/xhtml" lang="en"><head><meta http-equiv="Content-Type" content="text/html;charset=UTF-8"/><link rel="stylesheet" href="../jacoco-resources/report.css" type="text/css"/><link rel="shortcut icon" href="../jacoco-resources/report.gif" type="image/gif"/><title>User.java</title><link rel="stylesheet" href="../jacoco-resources/prettify.css" type="text/css"/><script type="text/javascript" src="../jacoco-resources/prettify.js"></script></head><body onload="window['PR_TAB_WIDTH']=4;prettyPrint()"><div class="breadcrumb" id="breadcrumb"><span class="info"><a href="../jacoco-sessions.html" class="el_session">Sessions</a></span><a href="../index.html" class="el_report">AuctionEngine</a> &gt; <a href="index.source.html" class="el_package">default</a> &gt; <span class="el_source">User.java</span></div><h1>User.java</h1><pre class="source lang-java linenums">import java.util.ArrayList;
+import java.util.HashSet;
+
+public class User{
+
+    private String name;
+    private HashSet&lt;Item&gt; items;    // All the items that the user made bid
+
+<span class="fc" id="L9">    public User(String username){</span>
+<span class="fc" id="L10">        items = new HashSet&lt;&gt;();</span>
+<span class="fc" id="L11">        this.name = username;    </span>
+<span class="fc" id="L12">    }</span>
+
+    /**
+     * Makes a bid
+     * @param itemName
+     * @param number
+     */
+    public void makeBid(String itemName, int number){
+<span class="fc" id="L20">        Item item = ItemsManager.getItem(itemName);</span>
+
+<span class="fc bfc" id="L22" title="All 2 branches covered.">        if(item != null){</span>
+<span class="fc" id="L23">            Bid newBid = new Bid(this,item,number);</span>
+<span class="fc bfc" id="L24" title="All 2 branches covered.">            if(item.addBid(newBid) == true){</span>
+<span class="fc" id="L25">                items.add(item);</span>
+<span class="fc" id="L26">                System.out.println(&quot;Bid made succesfully (&quot; + this.name + &quot;, &quot; + itemName + &quot;, &quot; + number + &quot;)&quot;);</span>
+            }else 
+<span class="fc" id="L28">                System.out.println(&quot;Bid needs to be higher than the winning bid&quot;);</span>
+<span class="fc" id="L29">        }else </span>
+<span class="fc" id="L30">            System.out.println(&quot;Item not found&quot;);</span>
+
+<span class="fc" id="L32">    }</span>
+
+    /**
+     * Returns all the bids that the user made on a specific item
+     * @param username
+     * @return ArrayList&lt;Bid&gt;
+     */
+    public ArrayList&lt;Bid&gt; getAllBidsOnItem(String username){
+<span class="fc" id="L40">        ArrayList&lt;Bid&gt; allBids = new ArrayList&lt;&gt;();</span>
+<span class="fc" id="L41">        Item item = ItemsManager.getItem(username);</span>
+
+<span class="fc bfc" id="L43" title="All 2 branches covered.">        for(Bid bid: item.getBids()){</span>
+<span class="fc bfc" id="L44" title="All 2 branches covered.">            if(bid.getUser().equals(this)){</span>
+<span class="fc" id="L45">                allBids.add(bid);</span>
+            }
+<span class="fc" id="L47">        }</span>
+<span class="fc" id="L48">        return allBids;</span>
+    }
+
+    /**
+     * Prints all the bids that the user made on a specific item
+     * @param username
+     */
+    // public void printAllBidsOnItem(String username){
+    //     System.out.println(&quot;ALL BIDS THAT &quot; + this.name +  &quot; MADE ON ITEM &quot; + username);
+    //     ArrayList&lt;Bid&gt; bids = getAllBidsOnItem(username);
+    //     for(Bid bid: bids){
+    //         System.out.println(&quot;Bid: &quot; + bid.getNumber());
+    //     }
+    // }
+
+    /**
+     * Prints all the items that the user made bid
+     */
+    // public void printAllItemsThatUserMadeBid(){
+    //    System.out.println(&quot;ALL ITEMS THAT &quot; + this.name +  &quot; MADE BIDS&quot;);
+    //    for(Item item: items){
+    //        System.out.println(&quot;Item: &quot; + item.getName());
+    //    }
+    // }
+
+    /**
+     * Returns all the items that the user made bid
+     * @return HashSet&lt;Item&gt;
+     */
+    public HashSet&lt;Item&gt; getAllItemsThatUserMadeBid(){
+<span class="fc" id="L78">        return items;</span>
+    }
+
+    /**
+     * Returns the name of the user
+     * @return String
+     */
+    public String getName(){
+<span class="fc" id="L86">        return name;</span>
+    }
+
+ 
+}
+</pre><div class="footer"><span class="right">Created with <a href="http://www.jacoco.org/jacoco">JaCoCo</a> 0.8.1.201803210924</span></div></body></html>

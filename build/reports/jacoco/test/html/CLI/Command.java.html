@@ -1,0 +1,77 @@
+<?xml version="1.0" encoding="UTF-8"?><!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd"><html xmlns="http://www.w3.org/1999/xhtml" lang="en"><head><meta http-equiv="Content-Type" content="text/html;charset=UTF-8"/><link rel="stylesheet" href="../jacoco-resources/report.css" type="text/css"/><link rel="shortcut icon" href="../jacoco-resources/report.gif" type="image/gif"/><title>Command.java</title><link rel="stylesheet" href="../jacoco-resources/prettify.css" type="text/css"/><script type="text/javascript" src="../jacoco-resources/prettify.js"></script></head><body onload="window['PR_TAB_WIDTH']=4;prettyPrint()"><div class="breadcrumb" id="breadcrumb"><span class="info"><a href="../jacoco-sessions.html" class="el_session">Sessions</a></span><a href="../index.html" class="el_report">AuctionEngine</a> &gt; <a href="index.source.html" class="el_package">CLI</a> &gt; <span class="el_source">Command.java</span></div><h1>Command.java</h1><pre class="source lang-java linenums">package CLI;
+
+public class Command    
+{
+    private String commandWord;
+    private String secondWord;
+    private String thirdWord;
+      
+    /**
+     * Create a command object. First,second and third word must be supplied, but
+     * either one or 2 can be null.
+     * @param firstWord The first word of the command. Null if the command
+     *                  was not recognised.
+     * @param secondWord The second word of the command.
+     * @param thirdWord The third word of the command.
+     */
+    public Command(String firstWord, String secondWord, String thirdWord)
+<span class="nc" id="L18">    {</span>
+<span class="nc" id="L19">        commandWord = firstWord;</span>
+<span class="nc" id="L20">        this.secondWord = secondWord;</span>
+<span class="nc" id="L21">        this.thirdWord = thirdWord;</span>
+<span class="nc" id="L22">    }</span>
+
+    /**
+     * Return the command word (the first word) of this command. If the
+     * command was not understood, the result is null.
+     * @return The command word.
+     */
+    public String getCommandWord()
+    {
+<span class="nc" id="L31">        return commandWord;</span>
+    }
+
+    /**
+     * @return The second word of this command. Returns null if there was no
+     * second word.
+     */
+    public String getSecondWord()
+    {
+<span class="nc" id="L40">        return secondWord;</span>
+    }
+    
+    /**
+     * @return The third word of this command. Returns null if there was no
+     * second word.
+     */
+    public String getThirdWord()
+    {
+<span class="nc" id="L49">        return thirdWord;</span>
+    }
+
+    /**
+     * @return true if this command was not understood.
+     */
+    public boolean isUnknown()
+    {
+<span class="nc bnc" id="L57" title="All 2 branches missed.">        return (commandWord == null);</span>
+    }
+
+    /**
+     * @return true if the command has a second word.
+     */
+    public boolean hasSecondWord()
+    {
+<span class="nc bnc" id="L65" title="All 2 branches missed.">        return (secondWord != null);</span>
+    }
+    
+    /**
+     * @return true if the command has a third word.
+     */
+    public boolean hasThirdWord()
+    {
+<span class="nc bnc" id="L73" title="All 2 branches missed.">        return (thirdWord != null);</span>
+    }
+}
+
+</pre><div class="footer"><span class="right">Created with <a href="http://www.jacoco.org/jacoco">JaCoCo</a> 0.8.1.201803210924</span></div></body></html>

@@ -1,0 +1,23 @@
+%Bid made succesfully (Con, toys, 50)
+(Bid made succesfully (Marios, toys, 80)
+ Item : toys user: Marios --> 80
+%Bid made succesfully (John, toy, 10)
+%Bid made succesfully (John, toy, 15)
+User not found
+%Bid made succesfully (John, toy, 10)
+%Bid made succesfully (John, toy, 15)
+	Item not found
+
+Item not found
+%Bid made succesfully (John, toy, 10)
+&Bid made succesfully (John, ball, 10)
+%Bid made succesfully (John, toy, 50)
+,Bid needs to be higher than the winning bid
+Item not found
+Item not found
+User not found
+'Bid made succesfully (Smith, ball, 50)
+User not found
+%Bid made succesfully (John, toy, 10)
+'Bid made succesfully (Marios, toy, 13)
+%Bid made succesfully (John, toy, 15)
